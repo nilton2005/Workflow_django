@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Volumen de Cilindro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        input[type="int"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .cylinder-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .cylinder {
+            width: 100px;
+            height: 200px;
+            background-color: #007BFF;
+            border-radius: 50px 50px 0 0;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .cylinder::before,
+        .cylinder::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            background-color: #007BFF;
+            border-radius: 50%;
+            left: 0;
+        }
+
+        .cylinder::before {
+            top: -25px;
+        }
+
+        .cylinder::after {
+            top: 175px;
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Cálculo de volumen de cilindro</h2>
+    <form action="{% url 'volumen:calcularVolumen' %}" method="POST">
+        {% csrf_token %}
+        Introdusca el diámetro en metros: <input type="int" name="diametro"> <br>
+        Introdusca la altura en metros: <input type="int" name="altura"> 
+        <input type="submit" name="submit" value="Calcular">
+    </form>
+
+    <div class="cylinder-container">
+        <div class="cylinder"></div>
+    </div>
+</body>
+</html>

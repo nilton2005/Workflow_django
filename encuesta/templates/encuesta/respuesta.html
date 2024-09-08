@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{titulo}}</title>
+</head>
+<body>
+    <h2>{{titulo}}</h2>
+    <table class="table table-dark table-striped">
+        <thead>
+            info del sujeto
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+
+            </tr>
+        </tbody>
+        <th>
+            <p>Nomre: {{nombre}}</p>
+            <p>Clave: {{clave}}</p>
+            <p>Educación: {{educacion}}</p>
+            <p>Nacionalidad: {{nacionalidad}}</p>
+            <p>Idiomas:</p>
+            <ul>
+                {%for item in idiomas%}
+                <li>{{item}}</li>
+                {%endfor%}
+            </ul>
+            <p>Email: {{correo}}</p>
+            <p>Sitio Web: {{website}}</p>
+        
+        </th>
+    </table>
+
+</body>
+</html>
