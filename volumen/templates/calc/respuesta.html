@@ -4,6 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h3 {
+            position: relative;
+            font-size: 2em;
+            color: #ffcc00;
+            transition: color 0.3s ease;
+        }
+        h3:hover {
+            color: #ff6600;
+        }
+        h3::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 80%);
+            opacity: 0;
+            transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+        }
+        h3:hover::after {
+            width: 200px;
+            height: 200px;
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 <body>
     <h3>El volumen del cilindro es: {{volumenTotal}}</h3>

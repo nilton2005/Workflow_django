@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 def processData(request):
     if request.method == "POST":    
-        print("hellos ")
+        
         operacion = request.POST['operations']
         a = int(request.POST['a'])
         b = int(request.POST['b'])

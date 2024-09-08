@@ -64,10 +64,11 @@
         .cylinder {
             width: 100px;
             height: 200px;
-            background-color: #007BFF;
+            background: linear-gradient(to bottom, #007BFF 0%, #0056b3 100%);
             border-radius: 50px 50px 0 0;
             position: relative;
             margin: 0 auto;
+            overflow: hidden;
         }
 
         .cylinder::before,
@@ -83,17 +84,18 @@
 
         .cylinder::before {
             top: -25px;
+            background: radial-gradient(circle at center, #007BFF 0%, #0056b3 100%);
         }
 
         .cylinder::after {
             top: 175px;
-            background-color: #0056b3;
+            background: radial-gradient(circle at center, #0056b3 0%, #003f7f 100%);
         }
     </style>
 </head>
 <body>
     <h2>Cálculo de volumen de cilindro</h2>
-    <form action="{% url 'volumen:calcularVolumen' %}" method="POST">
+    <form action="{% url 'volumen:volCilindro' %}" method="POST">
         {% csrf_token %}
         Introdusca el diámetro en metros: <input type="int" name="diametro"> <br>
         Introdusca la altura en metros: <input type="int" name="altura"> 
